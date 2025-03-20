@@ -16,48 +16,52 @@ body {
   text-align: center;
 }
 
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #333;
-            padding: 10px;
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  padding: 10px;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-        .nav-links {
-            display: flex;
-            gap: 5px;
-        }
+.nav-links {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap; /* Allows items to wrap if needed */
+}
 
-        .nav-links a {
-            color: #9b59b6;
-            text-decoration: none;
-            font-size: 18px;
-            padding: 6px 10px;
-            border: 2px solid #9b59b6;
-            border-radius: 5px;
-            display: inline-block;
-            white-space: nowrap;
-        }
+.nav-links a {
+  color: #9b59b6;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 8px 12px;
+  border: 2px solid #9b59b6;
+  border-radius: 5px;
+  display: inline-block;
+  white-space: nowrap; /* Prevents text from breaking weirdly */
+}
 
-        .nav-links a:hover {
-            color: #fff;
-            border-color: white;
-            background-color: #9b59b6;
-        }
+@media (max-width: 600px) {
+  nav {
+    padding: 5px; /* Reduce padding on smaller screens */
+  }
 
-        @media (max-width: 600px) {
-            .nav-links a {
-                font-size: 14px;
-                padding: 4px 8px;
-            }
-        }
+  .nav-links {
+    flex-direction: column; /* Stack links vertically */
+    align-items: center; /* Center them */
+    gap: 3px;
+  }
 
+  .nav-links a {
+    font-size: 16px; /* Make text slightly smaller */
+    padding: 6px 10px;
+  }
+}
 
 .game-container {
   text-align: center;
