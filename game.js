@@ -172,3 +172,37 @@ function handleInput(event) {
     }
     return moved;
   }
+
+  let touchStartX = 0, touchStartY = 0, touchEndX = 0, touchEndY = 0;
+
+document.addEventListener("touchstart", (event) => {
+    touchStartX = event.touches[0].clientX;
+    touchStartY = event.touches[0].clientY;
+});
+
+document.addEventListener("touchend", (event) => {
+    touchEndX = event.changedTouches[0].clientX;
+    touchEndY = event.changedTouches[0].clientY;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    let dx = touchEndX - touchStartX;
+    let dy = touchEndY - touchStartY;
+
+    if (Math.abs(dx) > Math.abs(dy)) {
+        // Horizontal swipe
+        if (dx > 50) {
+            handleInput({ key: "ArrowRight" });
+        } else if (dx < -50) {
+            handleInput({ key: "ArrowLeft" });
+        }
+    } else {
+        // Vertical swipe
+        if (dy > 50) {
+            handleInput({ key: "ArrowDown" });
+        } else if (dy < -50) {
+            handleInput({ key: "ArrowUp" });
+        }
+    }
+}
