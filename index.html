@@ -44,12 +44,24 @@
           border: 2px solid #9b59b6;
           border-radius: 5px;
           display: inline-block;
+          transition: all 0.2s ease;
       }
 
       .nav-links a:hover {
           color: #fff;
           border-color: white;
           background-color: #9b59b6;
+      }
+
+      @media (max-width: 600px) {
+          .nav-links {
+              gap: 2px;
+          }
+          
+          .nav-links a {
+              font-size: 14px;
+              padding: 5px 8px;
+          }
       }
 
       .dropdown {
