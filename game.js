@@ -1,6 +1,5 @@
 let board = [];
 let score = 0;
-let highScore = localStorage.getItem("highScore") || 0;
 document.addEventListener('keydown', handleInput);
 document.getElementById('reset').addEventListener('click', initializeGame);
 initializeGame();
@@ -40,7 +39,10 @@ function updateBoard() {
   }));
   
   document.getElementById('score').textContent = `Score: ${score}`;
-  document.getElementById('high-score').textContent = `High Score: ${highScore}`;
+  document.getElementById("up").addEventListener("click", () => handleInput({ key: "ArrowUp" }));
+document.getElementById("down").addEventListener("click", () => handleInput({ key: "ArrowDown" }));
+document.getElementById("left").addEventListener("click", () => handleInput({ key: "ArrowLeft" }));
+document.getElementById("right").addEventListener("click", () => handleInput({ key: "ArrowRight" }));
   
   if (!canMove()) {
     document.getElementById("game-over").style.display = "block";
@@ -172,37 +174,3 @@ function handleInput(event) {
     }
     return moved;
   }
-
-  let touchStartX = 0, touchStartY = 0, touchEndX = 0, touchEndY = 0;
-
-document.addEventListener("touchstart", (event) => {
-    touchStartX = event.touches[0].clientX;
-    touchStartY = event.touches[0].clientY;
-});
-
-document.addEventListener("touchend", (event) => {
-    touchEndX = event.changedTouches[0].clientX;
-    touchEndY = event.changedTouches[0].clientY;
-    handleSwipe();
-});
-
-function handleSwipe() {
-    let dx = touchEndX - touchStartX;
-    let dy = touchEndY - touchStartY;
-
-    if (Math.abs(dx) > Math.abs(dy)) {
-        // Horizontal swipe
-        if (dx > 50) {
-            handleInput({ key: "ArrowRight" });
-        } else if (dx < -50) {
-            handleInput({ key: "ArrowLeft" });
-        }
-    } else {
-        // Vertical swipe
-        if (dy > 50) {
-            handleInput({ key: "ArrowDown" });
-        } else if (dy < -50) {
-            handleInput({ key: "ArrowUp" });
-        }
-    }
-}
