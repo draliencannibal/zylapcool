@@ -31,24 +31,24 @@ nav {
 
 @media (max-width: 600px) {
   nav {
-    flex-wrap: wrap; /* Allow items to wrap instead of stacking */
-    padding: 8px; /* Slightly smaller padding */
+    flex-wrap: wrap; 
+    padding: 8px; 
   }
 
   .nav-links {
-    flex-direction: row; /* Keep items in a row */
-    flex-wrap: wrap; /* Allow wrapping if needed */
-    justify-content: center; /* Center links */
+    display: flex; 
+    flex-direction: row; 
+    flex-wrap: wrap;
+    justify-content: center; 
     gap: 5px;
   }
 
   .nav-links a {
-    font-size: 16px; /* Adjust text size */
+    font-size: 16px; 
     padding: 6px 10px;
-    white-space: nowrap; /* Prevent line breaks in links */
+    white-space: nowrap; 
   }
 }
-
 
 .game-container {
   text-align: center;
