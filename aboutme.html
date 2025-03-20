@@ -25,24 +25,22 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
         }
 
         .nav-links {
             display: flex;
-            flex-wrap: wrap;
             gap: 5px;
-            justify-content: center;
         }
 
         .nav-links a {
             color: #9b59b6;
             text-decoration: none;
             font-size: 18px;
-            padding: 8px 12px;
+            padding: 6px 10px;
             border: 2px solid #9b59b6;
             border-radius: 5px;
             display: inline-block;
+            white-space: nowrap;
         }
 
         .nav-links a:hover {
@@ -51,16 +49,24 @@
             background-color: #9b59b6;
         }
 
+        @media (max-width: 600px) {
+            .nav-links a {
+                font-size: 14px;
+                padding: 4px 8px;
+            }
+        }
+
         .dropdown {
+            margin-top: 30px;
             cursor: pointer;
             padding: 10px;
             background-color: #333;
             border-radius: 5px;
             font-size: 18px;
-            width: 90%; 
-            max-width: 300px;
-            margin: 15px auto;
-            text-align: center;
+            width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
         }
 
         .dropdown-content {
@@ -69,10 +75,9 @@
             background-color: #222;
             border-radius: 5px;
             font-size: 16px;
-            width: 90%;
-            max-width: 300px;
-            word-wrap: break-word;
-            white-space: normal;
+            width: 300px; 
+            word-wrap: break-word; 
+            white-space: normal; 
             margin: 0 auto;
         }
 
@@ -96,19 +101,12 @@
         }
 
         .pfp {
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 20px;
-            margin-top: 60px;
-        }
-
-        @media (max-width: 600px) {
-            .nav-links {
-                flex-direction: column;
-                align-items: center;
-            }
+            margin-top: 80px;
         }
     </style>
     <script>
@@ -122,8 +120,8 @@
 
     <nav>
         <div class="nav-links">
-          <a href="index.html">homepage</a> 
-          <a href="crazy.html">crazy</a>
+          <a href ="index.html">homepage</a> 
+          <a href ="crazy.html">crazy</a>
           <a href="poetry.html">poetry</a> 
           <a href="2048.html">2048</a>
         </div>
@@ -133,6 +131,7 @@
 
     <h1>about me :))</h1>
 
+    <!-- First dropdown -->
     <div class="dropdown" onclick="toggleDropdown('socials')">
         what are your socials?
     </div>
@@ -147,6 +146,7 @@
         <a href="https://github.com/zylapcool">and github</a>
     </div>
 
+    <!-- Second dropdown -->
     <div class="dropdown" onclick="toggleDropdown('aboutme')">
         about me
     </div>
@@ -154,6 +154,7 @@
         my name is zyla(intp) and i enjoy coding in python(im a pybaby twt). i also like to watch anime. i was born in the united states and mainly speak english.
     </div>
 
+    <!-- Third dropdown -->
     <div class="dropdown" onclick="toggleDropdown('favoriteanime')">
         what's your favorite anime?
     </div>
@@ -161,6 +162,7 @@
         no game no life is my all time favorite
     </div>
 
+    <!-- Fourth dropdown -->
     <div class="dropdown" onclick="toggleDropdown('pfp')">
         what's your pfp?
     </div>
@@ -168,6 +170,7 @@
         my pfp is my kitty cat, her name is rodent
     </div>
 
+    <!-- Fifth dropdown -->
     <div class="dropdown" onclick="toggleDropdown('writing')">
         what got you into poetry/writing?
     </div>
