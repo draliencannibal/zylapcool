@@ -12,123 +12,108 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 100vh;
-        overflow: hidden;
+        min-height: 100vh;
         text-align: center;
         font-family: Arial, sans-serif;
+        padding-top: 60px;
       }
 
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #333;
-            padding: 10px;
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      nav {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          background-color: #333;
+          padding: 10px;
+          z-index: 1000;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
 
-        .nav-links {
-            display: flex;
-            gap: 1px
+      .nav-links {
+          display: flex;
+          gap: 5px;
+      }
 
-        }
+      .nav-links a {
+          color: #9b59b6;
+          text-decoration: none;
+          font-size: 18px;
+          padding: 8px 12px;
+          border: 2px solid #9b59b6;
+          border-radius: 5px;
+          display: inline-block;
+      }
 
-        .nav-links a {
-            color: #9b59b6;
-            text-decoration: none;
-            font-size: 20px;
-            padding: 8px 12px;
-            border: 2px solid #9b59b6;
-            border-radius: 5px;
-            display: inline-block;
-        }
+      .nav-links a:hover {
+          color: #fff;
+          border-color: white;
+          background-color: #9b59b6;
+      }
 
-        nav a {
-            color: #9b59b6;
-            text-decoration: none;
-            font-size: 20px;
-            margin: 5px;
-            display: inline-block;
-        }
+      .dropdown {
+          position: absolute;
+          top: 50px;
+          left: 10px;
+          cursor: pointer;
+          background-color: #444;
+          padding: 10px;
+          border-radius: 5px;
+          display: inline-block;
+          font-size: 16px;
+      }
 
-        .nav-links a:hover {
-            color: #fff;
-            border-color: white;
-            background-color: #9b59b6;
-        }
+      .dropdown-content {
+          display: none;
+          position: absolute;
+          top: 85px;
+          left: 10px;
+          background-color: #555;
+          padding: 10px;
+          border-radius: 5px;
+          box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      }
 
-        nav a:hover {
-            color: #fff;
-            border-color: white;
-            background-color: #9b59b6;
-        }
+      .dropdown-content a {
+          display: block;
+          color: white;
+          text-decoration: none;
+          padding: 5px 0;
+      }
 
-        .dropdown {
-            position: absolute;
-            top: 60px;
-            left: 10px;
-            cursor: pointer;
-            background-color: #444;
-            padding: 10px;
-            border-radius: 5px;
-            display: inline-block;
-        }
+      .dropdown-content a:hover {
+          color: #9b59b6;
+      }
 
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            top: 17%;
-            left: 0;
-            background-color: #555;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-        }
+      .background-container {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          z-index: -1;
+      }
 
-        .dropdown-content a {
-            display: block;
-            color: white;
-            text-decoration: none;
-            padding: 5px 0;
-        }
+      .random-image {
+          position: absolute;
+          max-width: 20vw;
+          max-height: 20vw;
+          opacity: 1;
+          z-index: -1;
+      }
 
-        .dropdown-content a:hover {
-            color: #9b59b6;
-        }
-
-        .background-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1;
-        }
-
-        .random-image {
-            position: absolute;
-            max-width: 200px;
-            max-height: 200px;
-            opacity: 1;
-            z-index: -1;
-        }
-
-        h1, h2, iframe{
-            position: relative;
-            z-index: 30;
-            background-color: #121212;
-            padding: 10px;
-            border-radius: 5px;
-            display: block;
-            width: fit-content;
-            margin: 10px auto;
-        }
-
+      h1, h2, iframe{
+          position: relative;
+          z-index: 30;
+          background-color: #121212;
+          padding: 10px;
+          border-radius: 5px;
+          display: block;
+          width: fit-content;
+          margin: 10px auto;
+      }
     </style>
     <script>
         function toggleDropdown(id) {
@@ -137,7 +122,7 @@
         }
 
         document.addEventListener("DOMContentLoaded", function () {
-    const imageUrls = [
+            const imageUrls = [
         "https://i.postimg.cc/7LskSg84/10-minutes.jpg",
         "https://i.postimg.cc/Y2mHmGXc/1196d1d703de279605e8621edda1fbf7.jpg",
         "https://i.postimg.cc/R0Vm3gYG/22c9c5f496c53aa1825ffe637c8fc9d6.jpg",
@@ -177,49 +162,20 @@
         "https://i.postimg.cc/fT8nGcy9/GF2-ZTHSWo-AA0-L2z.jpg"
     ];
 
-    const backgroundContainer = document.createElement("div");
-    backgroundContainer.classList.add("background-container");
-    document.body.prepend(backgroundContainer);
 
-    const placedPositions = [];
-    
-    imageUrls.forEach(url => {
-        let img = document.createElement("img");
-        img.src = url;
-        img.classList.add("random-image");
+            const backgroundContainer = document.createElement("div");
+            backgroundContainer.classList.add("background-container");
+            document.body.prepend(backgroundContainer);
 
-        let topPos, leftPos;
-        let maxAttempts = 100;
-        let attempts = 0;
-        let overlap;
-
-        do {
-            overlap = false;
-            topPos = Math.random() * (window.innerHeight - 200);
-            leftPos = Math.random() * (window.innerWidth - 200);
-
-            for (let pos of placedPositions) {
-                if (
-                    Math.abs(pos.top - topPos) < 220 &&
-                    Math.abs(pos.left - leftPos) < 220
-                ) {
-                    overlap = true;
-                    break;
-                }
-            }
-
-            attempts++;
-            if (attempts > maxAttempts) {
-                overlap = false; 
-            }
-        } while (overlap);
-
-        placedPositions.push({ top: topPos, left: leftPos });
-        img.style.top = `${topPos}px`;
-        img.style.left = `${leftPos}px`;
-        backgroundContainer.appendChild(img);
-    });
-});
+            imageUrls.forEach(url => {
+                let img = document.createElement("img");
+                img.src = url;
+                img.classList.add("random-image");
+                img.style.top = `${Math.random() * (window.innerHeight - 200)}px`;
+                img.style.left = `${Math.random() * (window.innerWidth - 200)}px`;
+                backgroundContainer.appendChild(img);
+            });
+        });
     </script>
 </head>
 <body>
