@@ -49,11 +49,6 @@ nav {
   }
 }
 
-  .nav-links {
-    flex-direction: column; /* Stack links vertically */
-    align-items: center; /* Center them */
-    gap: 3px;
-  }
 
   .nav-links a {
     font-size: 16px; /* Make text slightly smaller */
