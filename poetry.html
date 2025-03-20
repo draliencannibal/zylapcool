@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my poems</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            margin: 0;
+            padding-top: 60px;
+            text-align: center;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1px
+
+        }
+
+        .nav-links a {
+            color: #9b59b6;
+            text-decoration: none;
+            font-size: 20px;
+            padding: 8px 12px;
+            border: 2px solid #9b59b6;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        nav a {
+            color: #9b59b6;
+            text-decoration: none;
+            font-size: 20px;
+            margin: 5px;
+            display: inline-block;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+            border-color: white;
+            background-color: #9b59b6;
+        }
+
+        nav a:hover {
+            color: #fff;
+            border-color: white;
+            background-color: #9b59b6;
+        }
+
+
+
+        .dropdown {
+            margin-top: 30px;
+            cursor: pointer;
+            padding: 10px;
+            background-color: #333;
+            border-radius: 5px;
+            font-size: 18px;
+            width: 320px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .dropdown button {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            font-size: 18px;
+        }
+
+        .dropdown button:hover {
+            color: #9b59b6;
+        }
+
+        .dropdown-content {
+            display: none;
+            padding: 10px;
+            background-color: #222;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 300px; 
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+    <script>
+        function toggleDropdown(id) {
+            var element = document.getElementById(id);
+            element.classList.toggle("show");
+        }
+    </script>
+</head>
+<body>
+
+
+    <nav>
+        <div class="nav-links">
+        <a href="homepage.html">homepage</a>
+        <a href="crazy.html">crazy</a>
+        <a href="aboutme.html">about me</a>
+        <a href="2048.html">2048</a>
+        </div>
+    </nav>
+
+    <div class="dropdown">
+        <button onclick="toggleDropdown('poem1')">Love Should Not Feel Like Home</button>
+        <div class="dropdown-content" id="poem1">
+            <div class="poem">
+                He traces the lines in his hands,<br>
+                the ones his father clenched in rage,<br>
+                the ones his mother pointed with blame.<br>
+                Flesh remembers what the mind would rather forget.<br><br>
+                
+                His father lived at the bottom of a bottle,<br>
+                drowning while the world burned behind him.<br>
+                His mother fed the flames,<br>
+                denying the smoke curling from her tongue.<br><br>
+                
+                They danced their war in shattered glass and silence,<br>
+                a duet of bruises and bitter words.<br>
+                And he, he was the audience,<br>
+                watching, learning, becoming.<br><br>
+                
+                Now love stands before him,<br>
+                soft hands reaching, warm eyes pleading,<br>
+                but he flinches at the touch,<br>
+                hears his father’s anger in his breath,<br>
+                his mother’s poison in his words.<br><br>
+                
+                How can he hold without hurting?<br>
+                How can he love without war?<br>
+                They never deserved this<br>
+                so why should he?<br><br>
+                
+                So he steps back,<br>
+                fingers curling into fists he never throws,<br>
+                words dying on a tongue that will not lie.<br>
+                Because love should not taste like blood.<br>
+                Because love should not feel like home.<br>
+            </div>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <button onclick="toggleDropdown('poem2')">The Final Act</button>
+        <div class="dropdown-content" id="poem2">
+            <div class="poem">
+                the curtains close; the lights go black.<br>
+                metal clicks, a breath is held,<br>
+                then silence.<br>
+                ..<br>
+                ...<br>
+                
+                boom<br>
+                ..<br>
+                ...<br>
+                the echo stretches, clinging to empty air.<br>
+                then, light.<br>
+                the curtains shudder, slowly parting.<br>
+                the walls weep red.<br>
+                the ceiling scarred.<br><br>
+                
+                my head is gone, but I feel no shame.<br>
+                for my life was a performance, a scripted lie,<br>
+                each act rehearsed, each line refined.<br><br>
+                
+                yet when the final act arrived,<br>
+                the seats were empty.<br>
+            </div>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <button onclick="toggleDropdown('poem3')">1: Gentle Brown Earth</button>
+        <div class="dropdown-content" id="poem3">
+            <div class="poem">
+                to rest in the gentle brown earth,<br>
+                with grasses swaying above in mirth,<br>
+                where silence is the only sound,<br>
+                no yesterday, no morrow to be found.<br><br>
+                
+                to forget the weight of passing time,<br>
+                to forget the trials of this life's climb,<br>
+                in peaceful slumber, i'd be released,<br>
+                in death's embrace, i'd find my peace<br><br>
+            </div>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <button onclick="toggleDropdown('poem4')">2: In Petals Grace</button>
+        <div class="dropdown-content" id="poem4">
+            <div class="poem">
+                amidst the blooms, a whispered sigh, <br>
+                in petals grace, i wonder why. <br>
+                life's vibrant hues, so vast and wide, <br>
+                conceal the fears that dwell inside. <br><br>
+                
+                in beauty's mask, i try to hide, <br>
+                a secret fear, i can't abide. <br>
+                to live's a dance, to death, we glide, <br>
+                in both i seek what's locked inside. <br><br>
+                
+                like petals trembling, kissed by night, <br>
+                i fear the day's relentless light, <br>
+                yet in the dark, shadows ignite, <br>
+                the bloom of fears, their hidden flight.<br><br>
+            </div>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <button onclick="toggleDropdown('poem5')">3: a gardens depth</button>
+        <div class="dropdown-content" id="poem5">
+            <div class="poem">
+                in the garden's depths, where shadows play, <br>
+                in the petals, i lose my way. <br>
+                beneath the blossoms, secrets reside, <br>
+                i seek a haven from the world outside. <br><br>
+                
+                each bloom conceals a story untold, <br>
+                in whispered hues of red and gold. <br>
+                yet, in their beauty, i find no peace, <br>
+                only a fleeting, fragile release. <br><br>
+                
+                like a wilting rose, i long to part, <br>
+                from the thorns that pierce this wounded heart. <br>
+                in the silent garden, where dreams take flight, <br>
+                i yearn for solace in the depths of night.<br>
+            </div>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <button onclick="toggleDropdown('poem6')">hidden within</button>
+        <div class="dropdown-content" id="poem6">
+            <div class="poem">
+                who am i, truly, deep in my core?<br>
+                i am me, yes, but is there more?<br>
+                which "me" is real, which one can be seen?<br>
+                in the mirror of my mind, who is the "me" in between?<br><br>
+                
+                the thought still haunts my nights,<br>
+                of someone discovering whats hidden from sight,<br>
+                the tracks of what used to be, my actions dark trace,<br>
+                the secrets i carry, the scars i will never embrace.<br><br>
+                
+                in the back of my mind, where echoes resound,<br>
+                i contend with my actions that weigh me down.<br>
+                the questions remain, but no answers in sight,<br>
+                in silence i face the dread of the night.<br>
+            </div>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <button onclick="toggleDropdown('poem7')">echos of self doubt</button>
+        <div class="dropdown-content" id="poem7">
+            <div class="poem">
+                in the silence of this empty room, i dwell, <br>
+                reflecting on where my life may have fell, <br>
+                overwhelmed by thoughts that cloud my mind, <br>
+                selfdoubt whispers softly, hard to leave behind. <br><br>
+                
+                the shadows dance upon the walls so bare, <br>
+                as i search for answers, for someone to care, <br>
+                in this solitude, i grapple with my fears, <br>
+                tears of uncertainty, i've cried countless years. <br><br>
+                
+                could it be that i'm the root of all my strife? <br>
+                perhaps i'm not destined for this so called life.<br>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

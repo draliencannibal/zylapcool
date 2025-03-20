@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>you said crazy?</title>
+    <style>
+      body {
+        background-image: url("https://i.postimg.cc/mDM5sVhm/11698819a7fd41d20e3cd65f254ba936.png");
+        background-repeat: repeat;
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+        text-align: center;
+        font-family: Arial, sans-serif;
+      }
+
+      h1, p {
+        color: white;
+        text-align: center;
+        text-shadow: 
+          -1px -1px 0 #000,  
+           1px -1px 0 #000,
+          -1px  1px 0 #000,
+           1px  1px 0 #000; 
+      }
+
+      input, button {
+        margin: 10px;
+      }
+
+      .output {
+        position: absolute;
+        color: white;
+        white-space: nowrap;
+        text-shadow: 
+          -1px -1px 0 #000,  
+           1px -1px 0 #000,
+          -1px  1px 0 #000,
+           1px  1px 0 #000; 
+        text-decoration: none;
+      }
+      nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1px
+
+        }
+
+        .nav-links a {
+            color: #9b59b6;
+            text-decoration: none;
+            font-size: 20px;
+            padding: 8px 12px;
+            border: 2px solid #9b59b6;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        nav a {
+            color: #9b59b6;
+            text-decoration: none;
+            font-size: 20px;
+            margin: 5px;
+            display: inline-block;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+            border-color: white;
+            background-color: #9b59b6;
+        }
+
+        nav a:hover {
+            color: #fff;
+            border-color: white;
+            background-color: #9b59b6;
+        }
+
+
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-links">
+        <a href ="homepage.html">homepage</a> 
+        <a href="poetry.html">poetry</a> 
+        <a href="aboutme.html">about me</a>
+        <a href="2048.html">2048</a>
+      </div>
+    </nav>
+
+    <h1>say crazy(trust me)</h1>
+    <p>(you can say it more than once btw)</p>
+    <form>
+      <label for="input"> </label>
+      <input type="text" id="input" name="input">
+      <button type="button" onclick="generateSentence()">button(click)</button>
+    </form>
+    <div id="output-container">
+      <p id="output"></p>
+    </div>
+
+    <script>
+      function generateSentence() {
+        var input = document.getElementById("input").value;
+        if (["crazy", "crazy?", "Crazy", "Crazy?", "CRazy", "CRazy?", "CRAzy", "CRAzy?", "CRAZy", "CRAZy?", "CRAZY", "CRAZY?"].includes(input)) {
+          var outputContainer = document.getElementById("output-container");
+          var output = document.createElement("a");
+          output.className = "output";
+          output.href = "https://i.postimg.cc/rmNPnkgq/rubberroom.png";
+          output.innerHTML = "Crazy? I was crazy once... they locked me in a room. A rubber room. A rubber room with rats. And rats make me crazy.";
+          output.target = "_blank";
+          
+          var x = Math.random() * (window.innerWidth - 265);
+          var y = Math.random() * (window.innerHeight - 50);
+          var rotation = Math.random() * 360;
+          
+          output.style.left = x + "px";
+          output.style.top = y + "px";
+          output.style.transform = "rotate(" + rotation + "deg)";
+          
+          outputContainer.appendChild(output);
+        } else {
+          document.getElementById("output").innerHTML = "you're supposed to say crazy...";
+        }
+      }
+
+      var input = document.getElementById("input");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+          event.preventDefault();
+          document.querySelector("button").click();
+        }
+      });
+    </script>
+  </body>
+</html>

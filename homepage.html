@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ma website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: rgb(255, 255, 255);
+            margin: 0;
+            padding-top: 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1px
+
+        }
+
+        .nav-links a {
+            color: #9b59b6;
+            text-decoration: none;
+            font-size: 20px;
+            padding: 8px 12px;
+            border: 2px solid #9b59b6;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        nav a {
+            color: #9b59b6;
+            text-decoration: none;
+            font-size: 20px;
+            margin: 5px;
+            display: inline-block;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+            border-color: white;
+            background-color: #9b59b6;
+        }
+
+        nav a:hover {
+            color: #fff;
+            border-color: white;
+            background-color: #9b59b6;
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 60px;
+            left: 10px;
+            cursor: pointer;
+            background-color: #444;
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 17%;
+            left: 0;
+            background-color: #555;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-content a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 5px 0;
+        }
+
+        .dropdown-content a:hover {
+            color: #9b59b6;
+        }
+
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .random-image {
+            position: absolute;
+            max-width: 200px;
+            max-height: 200px;
+            opacity: 1;
+            z-index: -1;
+        }
+
+        h1, h2, iframe{
+            position: relative;
+            z-index: 30;
+            background-color: #121212;
+            padding: 10px;
+            border-radius: 5px;
+            display: block;
+            width: fit-content;
+            margin: 10px auto;
+        }
+
+    </style>
+    <script>
+        function toggleDropdown(id) {
+            var dropdown = document.getElementById(id);
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+    const imageUrls = [
+        "https://i.postimg.cc/7LskSg84/10-minutes.jpg",
+        "https://i.postimg.cc/Y2mHmGXc/1196d1d703de279605e8621edda1fbf7.jpg",
+        "https://i.postimg.cc/R0Vm3gYG/22c9c5f496c53aa1825ffe637c8fc9d6.jpg",
+        "https://i.postimg.cc/NMKwD5BH/33e022721a96b7375b41d666e80f1c07.jpg",
+        "https://i.postimg.cc/MZcWbrpF/60b3c648b284be72c46088710a80e798.png",
+        "https://i.postimg.cc/g2pmpzqC/5d200ca16876b62fc7938f60eda3d65d.jpg",
+        "https://i.postimg.cc/6phw5kMy/4bhpi5p-Cy-TE.jpg",
+        "https://i.postimg.cc/TwBv4f3H/49bbfd1ef7e328356d2d899412fc4b84.jpg",
+        "https://i.postimg.cc/tCQHdqfs/approved.png",
+        "https://i.postimg.cc/Qx1hv95g/9a7a96b5064e763058614fcae4cd17d6.png",
+        "https://i.postimg.cc/NGWQN7yf/7b5e47b2971786022fe80ca0c9e33d2a.png",
+        "https://i.postimg.cc/PJZnG9Lf/60fc7b2a3c08887b10f5b4cc8b1f6b30.jpg",
+        "https://i.postimg.cc/k5h02qKX/drawing.png",
+        "https://i.postimg.cc/pLkbtDdj/cat.jpg",
+        "https://i.postimg.cc/FHh5qPhm/boof.jpg",
+        "https://i.postimg.cc/VLqPKyQD/banana.jpg",
+        "https://i.postimg.cc/g0J9cnwT/F02-TQGMot6-Y.png",
+        "https://i.postimg.cc/Y0wMStBL/f09cd18e820c99ae63cc9e480ae1fbeb.jpg",
+        "https://i.postimg.cc/RZ09hPyd/f165de6d40554ab1d174e13d10198a47.jpg",
+        "https://i.postimg.cc/90tVRsc8/f53ffa2d064bcfbfe926bce7499b7415.jpg",
+        "https://i.postimg.cc/PfmdRv1W/F78-KKp-Fb-QAAbb-Rc.jpg",
+        "https://i.postimg.cc/3xbhvXHT/fighting-neko-arc-by-netto-painter-dez4uwq-pre.jpg",
+        "https://i.postimg.cc/RVd4Mrsq/FB-IMG-1716085858378.jpg",
+        "https://i.postimg.cc/65tBJ6hD/fa9f816855698c4c3a2ee28106856583.jpg",
+        "https://i.postimg.cc/j5fRKLmr/F8-Bmkp-Ib-UAA-SUR.jpg",
+        "https://i.postimg.cc/YSm5LT36/flashbang.gif",
+        "https://i.postimg.cc/3wV3PgLB/fuck-you.jpg",
+        "https://i.postimg.cc/9MyHKswm/fucking-cool.jpg",
+        "https://i.postimg.cc/pdwt0PTc/full-of-pilk.jpg",
+        "https://i.postimg.cc/FsrXCWrv/gay-bar.jpg",
+        "https://i.postimg.cc/xjySRDSg/GEv-RIo-VWw-AAc-Aoe.jpg",
+        "https://i.postimg.cc/br8fhL1Q/GEESk1-ZWQAIGc5-G.png",
+        "https://i.postimg.cc/Bbg9QDCR/GE8p-PNhbw-AA29-Tg.jpg",
+        "https://i.postimg.cc/5tYVqXxF/GFNG-TTXYAAu-BTG.jpg",
+        "https://i.postimg.cc/VkTy6zjs/GFm90-D1-Wg-AAoj-C8.jpg",
+        "https://i.postimg.cc/XYXS4rBD/GFHui-HXUAA3-Stb.jpg",
+        "https://i.postimg.cc/fT8nGcy9/GF2-ZTHSWo-AA0-L2z.jpg"
+    ];
+
+    const backgroundContainer = document.createElement("div");
+    backgroundContainer.classList.add("background-container");
+    document.body.prepend(backgroundContainer);
+
+    const placedPositions = [];
+    
+    imageUrls.forEach(url => {
+        let img = document.createElement("img");
+        img.src = url;
+        img.classList.add("random-image");
+
+        let topPos, leftPos;
+        let maxAttempts = 100;
+        let attempts = 0;
+        let overlap;
+
+        do {
+            overlap = false;
+            topPos = Math.random() * (window.innerHeight - 200);
+            leftPos = Math.random() * (window.innerWidth - 200);
+
+            for (let pos of placedPositions) {
+                if (
+                    Math.abs(pos.top - topPos) < 220 &&
+                    Math.abs(pos.left - leftPos) < 220
+                ) {
+                    overlap = true;
+                    break;
+                }
+            }
+
+            attempts++;
+            if (attempts > maxAttempts) {
+                overlap = false; 
+            }
+        } while (overlap);
+
+        placedPositions.push({ top: topPos, left: leftPos });
+        img.style.top = `${topPos}px`;
+        img.style.left = `${leftPos}px`;
+        backgroundContainer.appendChild(img);
+    });
+});
+    </script>
+</head>
+<body>
+    <nav>
+        <div class="nav-links">
+            <a href="crazy.html">crazy</a>
+            <a href="poetry.html">poetry</a>
+            <a href="aboutme.html">about me</a>
+            <a href="2048.html">2048</a>
+        </div>
+    </nav>
+    
+    <div class="dropdown" onclick="toggleDropdown('dropdown-menu')">extras</div>
+    <div class="dropdown-content" id="dropdown-menu">
+        <a href="https://discord.gg/KRTSkrUSCP">my discord :P</a>
+    </div>
+
+    <h1>uhhh idk sob</h1>
+    
+    <h2>spotify playlist :P</h2>
+    <iframe src="https://open.spotify.com/embed/playlist/3N8dYvzGYSPVHc5tsm1bko?utm_source=generator" width="300" height="380" frameborder="0" allow="encrypted-media"></iframe>
+</body>
+</html>

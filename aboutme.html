@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>about mee</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            margin: 0;
+            padding-top: 60px;
+            text-align: center;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1px
+
+        }
+
+        .nav-links a {
+            color: #9b59b6;
+            text-decoration: none;
+            font-size: 20px;
+            padding: 8px 12px;
+            border: 2px solid #9b59b6;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        nav a {
+            color: #9b59b6;
+            text-decoration: none;
+            font-size: 20px;
+            margin: 5px;
+            display: inline-block;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+            border-color: white;
+            background-color: #9b59b6;
+        }
+
+        nav a:hover {
+            color: #fff;
+            border-color: white;
+            background-color: #9b59b6;
+        }
+
+
+        .dropdown {
+            margin-top: 30px;
+            cursor: pointer;
+            padding: 10px;
+            background-color: #333;
+            border-radius: 5px;
+            font-size: 18px;
+            width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .dropdown-content {
+            display: none;
+            padding: 10px;
+            background-color: #222;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 300px; 
+            word-wrap: break-word; 
+            white-space: normal; 
+            margin: 0 auto;
+        }
+
+        .dropdown:hover {
+            color: #9b59b6;
+        }
+
+        .dropdown-content a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .dropdown-content a:hover {
+            color: #9b59b6;
+        }
+
+        h1 {
+            margin-top: 40px;
+            margin-bottom: 50px;
+            color: #9b59b6;
+        }
+
+        .pfp {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            margin-top: 60px;
+        }
+    </style>
+    <script>
+        function toggleDropdown(id) {
+            var content = document.getElementById(id);
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-links">
+          <a href ="homepage.html">homepage</a> 
+          <a href ="crazy.html">crazy</a>
+          <a href="poetry.html">poetry</a> 
+          <a href="2048.html">2048</a>
+        </div>
+      </nav>
+
+    <img src="https://i.postimg.cc/Jnj3Vhzy/Screenshot-2025-03-19-162121.png" alt="pfp" class="pfp">
+
+    <h1>about me :))</h1>
+
+    <!-- First dropdown -->
+    <div class="dropdown" onclick="toggleDropdown('socials')">
+        what are your socials?
+    </div>
+    <div class="dropdown-content" id="socials">
+        im "zylapcool" on  
+        <a href="https://open.spotify.com/user/313soxpztqpebuzbhdid37ac26li">spotify, </a>
+        <a href="https://steamcommunity.com/profiles/76561199050538067">steam, </a>
+        <a href="https://www.tiktok.com/@zylapcool">tiktok, </a>
+        <a href="https://www.youtube.com/@zylapcool">youtube, </a>
+        <a href="https://x.com/zylapcool">twitter(X), </a>
+        <a href="https://www.instagram.com/zylapcool/">instagram, </a>
+        <a href="https://github.com/zylapcool">and github</a>
+    </div>
+
+    <!-- Second dropdown -->
+    <div class="dropdown" onclick="toggleDropdown('aboutme')">
+        about me
+    </div>
+    <div class="dropdown-content" id="aboutme">
+        my name is zyla(intp) and i enjoy coding in python(im a pybaby twt). i also like to watch anime. i was born in the united states and mainly speak english.
+    </div>
+
+    <!-- Third dropdown -->
+    <div class="dropdown" onclick="toggleDropdown('favoriteanime')">
+        what's your favorite anime?
+    </div>
+    <div class="dropdown-content" id="favoriteanime">
+        no game no life is my all time favorite
+    </div>
+
+    <!-- Fourth dropdown -->
+    <div class="dropdown" onclick="toggleDropdown('pfp')">
+        what's your pfp?
+    </div>
+    <div class="dropdown-content" id="pfp">
+        my pfp is my kitty cat, her name is rodent
+    </div>
+
+    <!-- Fifth dropdown -->
+    <div class="dropdown" onclick="toggleDropdown('writing')">
+        what got you into poetry/writing?
+    </div>
+    <div class="dropdown-content" id="writing">
+        i use poetry to express myself/my emotions. same with writing
+    </div>
+
+</body>
+</html>
