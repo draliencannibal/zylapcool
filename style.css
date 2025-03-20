@@ -182,3 +182,24 @@ button {
     font-size: 8vw;
   }
 }
+
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column; /* Stack items vertically */
+    padding: 5px 0; /* Reduce padding */
+  }
+
+  .nav-links {
+    flex-direction: column; /* Stack links vertically */
+    gap: 5px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-size: 16px; /* Make text smaller */
+    padding: 6px 10px; /* Reduce padding */
+    width: 90%; /* Make links more mobile-friendly */
+    text-align: center; /* Center text */
+  }
+}
