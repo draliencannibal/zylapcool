@@ -157,42 +157,42 @@ button {
   padding: 10px;
   cursor: pointer;
 }
+
 @media (max-width: 600px) {
   .board {
-    grid-template-columns: repeat(4, 60px);
-    grid-template-rows: repeat(4, 60px);
-    gap: 5px;
-    padding: 5px;
+    grid-template-columns: repeat(4, 18vw);
+    grid-template-rows: repeat(4, 18vw);
+    gap: 2vw;
+    padding: 5vw;
   }
 
   .cell {
-    width: 60px;
-    height: 60px;
-    font-size: 1.5em;
-  }
-
-  button {
-    font-size: 18px;
-    padding: 8px;
+    width: 18vw;
+    height: 18vw;
+    font-size: 5vw;
   }
 }
 
 @media (max-width: 400px) {
   .board {
-    grid-template-columns: repeat(4, 50px);
-    grid-template-rows: repeat(4, 50px);
-    gap: 5px;
-    padding: 5px;
+    grid-template-columns: repeat(4, 20vw);
+    grid-template-rows: repeat(4, 20vw);
+    gap: 1.5vw;
+    padding: 3vw;
   }
 
   .cell {
-    width: 50px;
-    height: 50px;
+    width: 20vw;
+    height: 20vw;
+    font-size: 6vw;
+  }
+
+  .score {
     font-size: 1.2em;
   }
 
   button {
-    font-size: 16px;
-    padding: 6px;
+    font-size: 1em;
+    padding: 8px;
   }
 }
