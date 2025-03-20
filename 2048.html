@@ -9,17 +9,25 @@
 <body>
   <div class="nav-links">
   <nav>
-      <a href="index.html">homepage</a>
+      <a href="homepage.html">homepage</a>
       <a href="crazy.html">crazy</a>
       <a href="poetry.html">poetry</a>
       <a href="aboutme.html">about me</a>
       </div>
   </nav>
 
+  <div id="score" class="score">score: 0</div>
   <div class="game-container">
     <div id="board" class="board"></div>
-    <div id="score" class="score">score: 0</div>
-    <div id="high-score" class="score">high score: 0</div>
+
+    <div id="controls">
+      <button id="up">↑</button>
+      <div>
+          <button id="left">←</button>
+          <button id="down">↓</button>
+          <button id="right">→</button>
+      </div>
+  </div>
     <button id="reset">restart game</button>
     <div id="game-over" class="game-over">game over</div>
   </div>
