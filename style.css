@@ -29,27 +29,25 @@ nav {
   align-items: center;
 }
 
-.nav-links {
-  display: flex;
-  gap: 5px;
-  flex-wrap: wrap; /* Allows items to wrap if needed */
-}
-
-.nav-links a {
-  color: #9b59b6;
-  text-decoration: none;
-  font-size: 20px;
-  padding: 8px 12px;
-  border: 2px solid #9b59b6;
-  border-radius: 5px;
-  display: inline-block;
-  white-space: nowrap; /* Prevents text from breaking weirdly */
-}
-
 @media (max-width: 600px) {
   nav {
-    padding: 5px; /* Reduce padding on smaller screens */
+    flex-wrap: wrap; /* Allow items to wrap instead of stacking */
+    padding: 8px; /* Slightly smaller padding */
   }
+
+  .nav-links {
+    flex-direction: row; /* Keep items in a row */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+    justify-content: center; /* Center links */
+    gap: 5px;
+  }
+
+  .nav-links a {
+    font-size: 16px; /* Adjust text size */
+    padding: 6px 10px;
+    white-space: nowrap; /* Prevent line breaks in links */
+  }
+}
 
   .nav-links {
     flex-direction: column; /* Stack links vertically */
