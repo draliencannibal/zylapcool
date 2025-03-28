@@ -128,9 +128,8 @@
     </div>
 
     <script>
-      var clickCount = 0;  // Track the number of times the button has been clicked
+      var clickCount = 0;  
 
-      // Sound files (use the raw GitHub URLs for direct access)
       var sounds = [
         "https://raw.githubusercontent.com/zylapcool/zylapcool/main/yahhoo.mp3",
         "https://raw.githubusercontent.com/zylapcool/zylapcool/main/doridori.mp3",
@@ -157,17 +156,17 @@
 
           outputContainer.appendChild(output);
 
-          // Play a random sound from the array
+
           var randomSound = sounds[Math.floor(Math.random() * sounds.length)];
           var audio = new Audio(randomSound);
           audio.play();
 
-          // Increment the click count
+  
           clickCount++;
 
-          // Check if the click count has reached 30
-          if (clickCount >= 30) {
-            window.location.href = "thoughts.html";  // Redirect to "thoughts.html"
+
+          if (clickCount >= 300) {
+            window.location.href = "thoughts.html";  
           }
         } else {
           document.getElementById("output").innerHTML = "you're supposed to say crazy...";
