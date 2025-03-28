@@ -43,74 +43,73 @@
            1px  1px 0 #000; 
         text-decoration: none;
       }
+
       nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #333;
-            padding: 10px;
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        padding: 10px;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
       .nav-links {
-          display: flex;
-          gap: 5px;
+        display: flex;
+        gap: 5px;
       }
 
       .nav-links a {
-          color: #9b59b6;
-          text-decoration: none;
-          font-size: 18px;
-          padding: 8px 12px;
-          border: 2px solid #9b59b6;
-          border-radius: 5px;
-          display: inline-block;
-          transition: all 0.2s ease;
+        color: #9b59b6;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 8px 12px;
+        border: 2px solid #9b59b6;
+        border-radius: 5px;
+        display: inline-block;
+        transition: all 0.2s ease;
       }
 
-        nav a {
-            color: #9b59b6;
-            text-decoration: none;
-            font-size: 20px;
-            margin: 5px;
-            display: inline-block;
-        }
+      nav a {
+        color: #9b59b6;
+        text-decoration: none;
+        font-size: 20px;
+        margin: 5px;
+        display: inline-block;
+      }
 
       .nav-links a:hover {
-          color: #fff;
-          border-color: white;
-          background-color: #9b59b6;
+        color: #fff;
+        border-color: white;
+        background-color: #9b59b6;
       }
 
-        nav a:hover {
-            color: #fff;
-            border-color: white;
-            background-color: #9b59b6;
+      nav a:hover {
+        color: #fff;
+        border-color: white;
+        background-color: #9b59b6;
+      }
+
+      @media (max-width: 600px) {
+        .nav-links {
+          gap: 2px;
         }
 
-            @media (max-width: 600px) {
-          .nav-links {
-              gap: 2px;
-          }
-          
-          .nav-links a {
-              font-size: 14px;
-              padding: 5px 8px;
-          }
+        .nav-links a {
+          font-size: 14px;
+          padding: 5px 8px;
+        }
       }
-
-
     </style>
   </head>
   <body>
     <nav>
       <div class="nav-links">
-        <a href ="index.html">homepage</a> 
-        <a href="poetry.html">poetry</a> 
+        <a href="index.html">homepage</a>
+        <a href="poetry.html">poetry</a>
         <a href="aboutme.html">about me</a>
         <a href="2048.html">2048</a>
       </div>
@@ -128,6 +127,16 @@
     </div>
 
     <script>
+      var clickCount = 0;  // Track the number of times the button has been clicked
+
+      // Sound files (use the raw GitHub URLs for direct access)
+      var sounds = [
+        "https://raw.githubusercontent.com/zylapcool/repository/branch/path/to/yahhoo.mp3",
+        "https://raw.githubusercontent.com/zylapcool/repository/branch/path/to/burenyuu.mp3",
+        "https://raw.githubusercontent.com/zylapcool/repository/branch/path/to/doridori.mp3",
+        "https://raw.githubusercontent.com/zylapcool/repository/branch/path/to/necoarc_says_china.mp3"
+      ];
+
       function generateSentence() {
         var input = document.getElementById("input").value;
         if (["crazy", "crazy?", "Crazy", "Crazy?", "CRazy", "CRazy?", "CRAzy", "CRAzy?", "CRAZy", "CRAZy?", "CRAZY", "CRAZY?"].includes(input)) {
@@ -137,16 +146,29 @@
           output.href = "https://i.postimg.cc/rmNPnkgq/rubberroom.png";
           output.innerHTML = "Crazy? I was crazy once... they locked me in a room. A rubber room. A rubber room with rats. And rats make me crazy.";
           output.target = "_blank";
-          
+
           var x = Math.random() * (window.innerWidth - 265);
           var y = Math.random() * (window.innerHeight - 50);
           var rotation = Math.random() * 360;
-          
+
           output.style.left = x + "px";
           output.style.top = y + "px";
           output.style.transform = "rotate(" + rotation + "deg)";
-          
+
           outputContainer.appendChild(output);
+
+          // Play a random sound from the array
+          var randomSound = sounds[Math.floor(Math.random() * sounds.length)];
+          var audio = new Audio(randomSound);
+          audio.play();
+
+          // Increment the click count
+          clickCount++;
+
+          // Check if the click count has reached 30
+          if (clickCount >= 30) {
+            window.location.href = "thoughts.html";  // Redirect to "thoughts.html"
+          }
         } else {
           document.getElementById("output").innerHTML = "you're supposed to say crazy...";
         }
