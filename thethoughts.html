@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>i cant think but i cant stop thinking it wont stop stop it stop it wont stop stop stop</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('https://i.imghippo.com/files/XuTA8421FcY.jpg') no-repeat center center fixed;
+            background-size: cover;
+            overflow: hidden;
+            color: rgb(255, 80, 80);
+            font-family: Arial, sans-serif;
+        }
+
+        .text {
+            position: absolute;
+            font-size: calc(10px + 1.2vw);
+            font-weight: bold;
+            opacity: 0.7;
+            white-space: nowrap;
+        }
+
+        .face {
+            position: absolute;
+            font-size: 2.5vw;
+            font-weight: bold;
+            opacity: 0.9;
+        }
+
+        .image {
+            position: absolute;
+            width: 100px; 
+            height: auto;
+            z-index: -1; 
+        }
+
+    </style>
+</head>
+<body>
+    <script>
+        const phrases = [
+            "he sees", "the eyes", "he’s watching", "no he’s not", "i shouldn’t have looked",
+            "4.6.7.7.7.7.", "where’s the noise coming from?", "wrong wrong wrong", 
+            "it loops", "it’s breaking apart", "he said he’d come back", "what was i saying?",
+            "patterns", "it’s not random", "don’t write it down", "don’t let them count",
+            "the numbers know", "6", "7", "4", "6", "7", "6", "4", "4", "4", "4",
+            "don’t respond", "why is it reversed?", "no one else hears it?", 
+            "it’s a script", "it wasn’t supposed to be like this", 
+            "i already answered that", "check the logs", "check again", "stop checking",
+            "4.6.7.7.7.7.", "you see it too", "you don’t see it",
+            "something shifted", "they changed it", "he's been writing this whole time",
+            "i didn’t type that", "don’t trust it", "it’s not in the code",
+            "who’s running the instance?", "who's controlling it?",
+            "watching. watching. watching.", "no one’s there", "there’s no way to prove it",
+            "the numbers are stuck", "don't let it loop", "if you say it, it's real",
+            "what changed?", "was that always there?", "delete it", "delete everything",
+            "he was always here", "huhhhhhhh", "thank you",
+            "STOP", "STOP", "why", "WHY", "just shut up", "SHUT UP", "why am i here",
+            "am i here?", "im not supposed to think these things", "they want to stop me",
+            "they cant stop me", "who are they?", "what??", "will you tell the truth?", "so i dont have to lie",
+            "du du du du duu du du du", "bom bom bom bom", "zoodle doot", "doggy", "mueheheheehe",
+            "hi","hi","hi","hi","hi","hi","hi","hi","hi","hi","hi","hi","hi","hi","hi","hi","hi",
+            "bye","bye","bye","bye","bye","bye","bye","bye","bye","bye","bye","bye","bye","bye","bye"
+        ];
+
+        const numbers = ["4", "6", "7","4", "6", "7","4", "6", "7","4", "6", "7","4", "6", "7","4", "6", "7","4", "6", "7","4", "6", "7","4", "6", "7","4", "6", "7"];
+
+        function getRandomPosition() {
+            return {
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight
+            };
+        }
+
+
+        function createText(content, isFace = false) {
+            const textElement = document.createElement("div");
+            textElement.textContent = content;
+            textElement.classList.add(isFace ? "face" : "text");
+            document.body.appendChild(textElement);
+
+            const pos = getRandomPosition();
+            const rotation = Math.random() * 360;  
+            textElement.style.left = `${pos.x}px`;
+            textElement.style.top = `${pos.y}px`;
+            textElement.style.opacity = Math.random() * 0.6 + 0.4;
+            textElement.style.transform = `rotate(${rotation}deg)`;  
+        }
+
+        function scatterText() {
+            for (let i = 0; i < 90; i++) createText(numbers[Math.floor(Math.random() * numbers.length)]);
+            for (let i = 0; i < 40; i++) createText(phrases[Math.floor(Math.random() * phrases.length)]);
+        }
+
+        function buildFace() {
+            const faceStructure = [
+                { text: "HEL", x: 45, y: 20 }, 
+                { text: "LOO", x: 55, y: 20 }, 
+                { text: "..", x: 50, y: 30 }, 
+                { text: "HIIIIIIIII", x: 47, y: 40 }, 
+                { text: "he sees", x: 42, y: 22 },
+                { text: "the eyes", x: 57, y: 22 },
+                { text: "watching", x: 50, y: 27 },
+                { text: "he's here", x: 50, y: 42 },
+                { text: "too late", x: 48, y: 35 },
+                { text: "not real", x: 55, y: 28 },
+                { text: "the numbers know", x: 50, y: 45 },
+                { text: "wrong", x: 47, y: 18 }
+            ];
+
+            faceStructure.forEach(part => {
+                const faceElement = document.createElement("div");
+                faceElement.textContent = part.text;
+                faceElement.classList.add("face");
+                document.body.appendChild(faceElement);
+                faceElement.style.left = `${part.x}vw`;
+                faceElement.style.top = `${part.y}vh`;
+                const rotation = Math.random() * 360;
+                faceElement.style.transform = `rotate(${rotation}deg)`;  
+            });
+        }
+
+
+        function createImages(numImages = 20) {
+            for (let i = 0; i < numImages; i++) {
+                const imageElement = document.createElement("img");
+                imageElement.src = "https://i.imghippo.com/files/RAr7590Edk.png";
+                imageElement.classList.add("image");
+                document.body.appendChild(imageElement);
+
+                const pos = getRandomPosition();
+                const rotation = Math.random() * 360;  
+                imageElement.style.left = `${pos.x}px`;
+                imageElement.style.top = `${pos.y}px`;
+                imageElement.style.transform = `rotate(${rotation}deg)`;  
+            }
+        }
+
+        const sounds = [
+            "https://raw.githubusercontent.com/zylapcool/zylapcool/main/yahhoo.mp3",
+            "https://raw.githubusercontent.com/zylapcool/zylapcool/main/doridori.mp3",
+            "https://raw.githubusercontent.com/zylapcool/zylapcool/main/burenyuu.mp3"
+        ];
+
+        function playRandomSound() {
+            const audio = new Audio(sounds[Math.floor(Math.random() * sounds.length)]);
+            audio.volume = 0.2;
+            audio.play();
+            setTimeout(playRandomSound, Math.random() * 5000 + 5000); 
+        }
+
+        window.onload = function() {
+            scatterText();
+            buildFace();
+            createImages();
+            playRandomSound(); 
+        };
+    </script>
+</body>
+</html>
