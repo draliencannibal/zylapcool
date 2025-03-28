@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spooterfy</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('https://i.imghippo.com/files/U7392lc.png') no-repeat center center fixed;
+            background-size: cover;
+            overflow: hidden;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 10px;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 5px;
+        }
+
+        .nav-links a {
+            color: #9b59b6;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 8px 12px;
+            border: 2px solid #9b59b6;
+            border-radius: 5px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+            border-color: white;
+            background-color: #9b59b6;
+        }
+
+        .playlist-container {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 100;
+        }
+
+        iframe {
+            width: 100%;
+            height: 380px;
+        }
+
+        .song {
+            position: absolute;
+            width: 320px;
+            height: 100px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-links">
+            <a href="index.html">homepage</a>
+            <a href="crazy.html">crazy</a>
+            <a href="poetry.html">poetry</a>
+            <a href="aboutme.html">about me</a>
+            <a href="2048.html">2048</a>
+        </div>
+    </nav>
+
+    <div class="playlist-container">
+        <iframe id="playlist" src="https://open.spotify.com/embed/playlist/3GJ9Z52Huhd5abfCMpNB53?utm_source=generator" frameborder="0" allowfullscreen></iframe>
+        <button onclick="nextPlaylist()">next</button>
+    </div>
+
+    <script>
+        const playlists = [
+            "https://open.spotify.com/embed/playlist/3GJ9Z52Huhd5abfCMpNB53?utm_source=generator",
+            "https://open.spotify.com/embed/playlist/08YjsfKE9D9J8T3rk24Kp9?utm_source=generator",
+            "https://open.spotify.com/embed/playlist/4AMMWKC4egh7GuzDZExTAg?utm_source=generator"
+        ];
+
+        let currentPlaylist = 0;
+
+        function nextPlaylist() {
+            currentPlaylist = (currentPlaylist + 1) % playlists.length;
+            document.getElementById("playlist").src = playlists[currentPlaylist];
+        }
+
+        const songs = [
+            "6puhdS8hZGcy38lvnixSm7", "4haSxzKZgsHeqHvGTbIPAz", "7tlbZCr7a3BLXCSlwvWMCA", "4bFHDgBFpu643EUOmAnFbr", 
+            "1Ndx4AI3Bco1Ewc84OrOQP", "09QvHJHDHbuptkaalGchss", "6OfnUW7ojHMgfubWVOeCkN", "1BRfn2oSI7x6p9YjmgIvfU", 
+            "43I2PiBJCc781cQwY5EUVA", "2GlV9w8oHSQdiPPk9lxqlp", "21NGjx3wUcaeo9XaVxvZAP", "3c3oUMxOr2cVFBY6V3v08C", 
+            "5OOSqqoKCL4s7WIFNbSZPD", "0KAiuUOrLTIkzkpfpn9jb9", "4zZPaGI5UonwUEgCKgL1eE", "3ykvobAQxQ5VlcDOMKXI4M"
+        ];
+
+        function getRandomPosition() {
+            const x = Math.random() * (window.innerWidth - 350); 
+            const y = Math.random() * (window.innerHeight - 250) + 150; 
+            return { x, y };
+        }
+
+        function displaySongs() {
+            songs.forEach(song => {
+                const songDiv = document.createElement("iframe");
+                songDiv.src = `https://open.spotify.com/embed/track/${song}`;
+                songDiv.classList.add("song");
+                document.body.appendChild(songDiv);
+                const pos = getRandomPosition();
+                songDiv.style.left = `${pos.x}px`;
+                songDiv.style.top = `${pos.y}px`;
+            });
+        }
+
+        window.onload = displaySongs;
+    </script>
+</body>
+</html>
