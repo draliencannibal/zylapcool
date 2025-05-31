@@ -18,22 +18,22 @@ body {
 
 @media (max-width: 600px) {
   nav {
-    flex-wrap: wrap; /* Allow items to wrap instead of stacking */
-    padding: 8px; /* Slightly smaller padding */
+    flex-wrap: wrap; 
+    padding: 8px; 
   }
 
   .nav-links {
-    display: flex; /* Ensure it's a flex container */
-    flex-direction: row; /* Keep items in a row */
-    flex-wrap: wrap; /* Allow wrapping if needed */
-    justify-content: center; /* Center links */
+    display: flex; 
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    justify-content: center; 
     gap: 5px;
   }
 
   .nav-links a {
-    font-size: 16px; /* Adjust text size */
+    font-size: 16px; 
     padding: 6px 10px;
-    white-space: nowrap; /* Prevent line breaks in links */
+    white-space: nowrap; 
   }
 }
 
@@ -51,8 +51,8 @@ body {
   padding: 10px;
   border-radius: 10px;
   position: relative;
-  width: 90vw; /* Make the board responsive */
-  max-width: 400px; /* Prevent it from getting too big */
+  width: 90vw; 
+  max-width: 400px; 
   height: 90vw;
   max-height: 400px;
 }
@@ -140,7 +140,7 @@ button {
   }
 
   .cell {
-    font-size: 6vw; /* Make text inside cells adjust dynamically */
+    font-size: 6vw; 
   }
 }
 
@@ -159,21 +159,21 @@ button {
 
 @media (max-width: 600px) {
   nav {
-    flex-direction: column; /* Stack items vertically */
-    padding: 5px 0; /* Reduce padding */
+    flex-direction: column; 
+    padding: 5px 0; 
   }
 
   .nav-links {
-    flex-direction: column; /* Stack links vertically */
+    flex-direction: column; 
     gap: 5px;
     width: 100%;
     align-items: center;
   }
 
   .nav-links a {
-    font-size: 16px; /* Make text smaller */
-    padding: 6px 10px; /* Reduce padding */
-    width: 90%; /* Make links more mobile-friendly */
-    text-align: center; /* Center text */
+    font-size: 16px; 
+    padding: 6px 10px; 
+    width: 90%; 
+    text-align: center; 
   }
 }
